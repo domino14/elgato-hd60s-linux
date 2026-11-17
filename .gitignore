@@ -1,0 +1,6 @@
+capture
+*.o
+*.orig
+*.yuv
+*.raw
+*.bin
