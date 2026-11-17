@@ -1,0 +1,13 @@
+[Unit]
+Description=Elgato HD60 S capture (virtual camera + microphone)
+After=pipewire.service
+Wants=pipewire.service
+
+[Service]
+Type=simple
+ExecStart=@BINDIR@/hd60s-capture -V
+# Clean exit (card unplugged) does not restart; crashes / transient errors do.
+Restart=on-failure
+RestartSec=2
+
+# No [Install] section: the udev rule starts this when the card appears.
